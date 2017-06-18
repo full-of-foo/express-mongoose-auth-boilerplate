@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  express-mongoose-auth-boilerplate:
+    build: .
+    stdin_open: true
+    tty: true
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV
+    links:
+      - mongo
+
+  mongo:
+    stdin_open: true
+    tty: true
+    image: mongo:3.2
+    expose:
+      - 27017
