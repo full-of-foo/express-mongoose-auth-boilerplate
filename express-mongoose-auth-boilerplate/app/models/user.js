@@ -8,7 +8,15 @@ const UserSchema = new mongoose.Schema({
     password: {type: String, required: true},
 }, schemaOpts);
 
-UserSchema.set('toJSON', {getters: true, virtual: true});
+UserSchema.set('toJSON', {
+    getters: true,
+    virtual: true,
+    transform(doc, ret, options) {
+        delete ret.password;
+        return ret;
+    }
+});
+
 addHelperFns(UserSchema);
 
 UserSchema.statics.safeCreate = function _safeCreate(data) {

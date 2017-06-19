@@ -13,10 +13,15 @@ const generateToken = pubKey => {
 
 const decodeToken = token => {
     if(typeof token !== 'string' || token.split('.').length !== 3) return;
-    const payload = jwt.decode(token, config.secret);
-    if(moment().unix() > payload.exp) return;
 
-    return payload;
+    try {
+        const payload = jwt.decode(token, config.secret);
+        if(moment().unix() > payload.exp) return;
+        return payload;
+    } catch(e) {
+        console.error(e);
+        return;
+    }
 };
 
 export {generateToken, decodeToken};
