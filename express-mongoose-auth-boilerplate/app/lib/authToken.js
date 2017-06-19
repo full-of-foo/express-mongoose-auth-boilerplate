@@ -19,7 +19,7 @@ const decodeToken = token => {
         if(moment().unix() > payload.exp) return;
         return payload;
     } catch(e) {
-        console.error(e);
+        console.error('Token Decode Error:', e);
         return;
     }
 };
