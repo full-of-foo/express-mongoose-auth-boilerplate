@@ -8,6 +8,8 @@ Just enough boilerplate to get you meaningfully going with Express 4+ and JWT-ba
  * Jasmine (for unit and functional testing)
  * Dockerised Xenial image (for running test and application containers)
 
+This project is based on the works of [express-boilerplate](https://github.com/full-of-foo/express-boilerplate) and [mongoose-models-boilerplate](https://github.com/full-of-foo/mongoose-models-boilerplate) :heart:.
+
 ## Usage
 
 Clone the repo and `cd` into it. Then build and run the application with:
@@ -48,7 +50,6 @@ $ TOKEN=$(node -pe 'JSON.parse(process.argv[1]).token' "$(echo '{"email": "foo@b
 $ curl -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" http://localhost:8080/api/user/
 [{"_id":"5947e94b3d5c1d00105278aa","updatedAt":"2017-06-19T15:10:03.597Z","createdAt":"2017-06-19T15:10:03.597Z","email":"foo@bar.com"}]
 ```
-
 
 
 ## Testing
